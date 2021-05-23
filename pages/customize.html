@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"/>
+    <title>My Farm</title>
+</head>
+<style>
+    #blackboard {
+        width:400px;
+        height : 300px;
+        background-color:green;
+        position:relative
+    }
+
+    #head_cow {
+        position: absolute;
+        width :50px;
+        height : 50px;
+        top : 50px;
+        left : 50px;
+        background-color: yellow;
+
+    }
+
+    #body_cow {
+        position: absolute;
+        width :200px;
+        height : 100px;
+        top : 100px;
+        left : 100px;
+        background-color: yellow;
+    }
+
+    .eyes {
+        position :absolute;
+        top : 30%;
+        left : 10%;
+        height : 10px;
+        width : 10px;
+        background-color: white;
+        border : 1px solid grey;
+        border-radius :50%;
+    }
+
+    .pupils {
+        position:absolute;
+        background-color: black;
+        height :5px;
+        top:50%;
+        height:50%;
+    }
+    .horns {
+        position:absolute;
+        top : -30px;
+        width:10px;
+        height:30px;
+        background-color: brown;
+    }
+
+    #tail {
+        position :absolute;
+        width:80px;
+        height:10px;
+        right :-60px;
+        top : 30px;
+        background-color: burlywood;
+        transform: rotate(50deg);
+    }
+
+    .paw {
+        height: 70px;
+        width: 23px;
+        background-color: red;
+        position: absolute;
+        top: 100px;
+    }
+    .paw_1{
+        top:100px;
+    }
+
+    .paw_2 {
+        left : 25%;
+    }
+
+    .paw_3 {
+        left : 60%; 
+    }
+
+    .paw_4 {
+        left : 175px; 
+    }
+
+    #main {
+        display :flex;
+        justify-content :space-around
+    }
+</style>
+<body>
+    <div id="header">
+        <div id ="logo">
+            <img src="../images/cow_plus.png"/>
+        </div>
+        <nav>
+            <ul>
+                <a href="indextest.html"><li>Accueil</li></a>
+                <a href ="customize.html"><li>Customiser</li></a>
+                <a href ="#"><li>Voir ma Ferme</li></a>
+                <a href ="#"><li>Contacter le Bendo</li></a>
+            </ul>
+        </nav>
+
+        <div id="search">
+            <img src="../images/search.png"/>
+            <div id ="input_search">
+                <input type="text" name="search" id="search_input">
+            </div>
+        </div>
+
+        <div id="account">
+            <img src ="../images/account.png"/>
+        </div>
+        
+    </div>
+    <h1>Custom</h1>
+    <h2>status : <span id="status"></span> </h2>
+    <div id="main">
+        <div id="blackboard">
+
+        </div>
+        <div id="options">
+            <p>Vache Color</p>
+            <select name="color" id="color">
+                <option value="red"> Red</option>
+                <option value="white">White</option>
+                <option value="black">Black</option>
+            </select>
+            <p>Vache Yeux</p>
+            <select name="eyes" id="eyes">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="black">Black</option>
+            </select>
+            <p>Vache Corne</p>
+            <select name="horns" id="horns">
+                <option value="pointu">pointu</option>
+                <option value="cut">Coupé</option>
+                <option value="curved">Courbé</option>
+            </select>
+        </div>
+    </div>
+    
+</body>
+<script>
+    let blackboard = document.getElementById("blackboard")
+    let headCow = document.createElement("div");
+    let bodyCow = document.createElement("div");
+    let eyes = document.createElement("div")
+    let horns = document.createElement("div")
+    let paw = document.createElement("div")
+    let tail = document.createElement("div")
+    let paw_sec = document.createElement("div")
+    let paw_third = document.createElement("div")
+    let paw_fourth = document.createElement("div")
+    
+    let paws = [paw,paw_sec,paw_third,paw_fourth]
+    
+    let paw_index = 1;
+    for(let el of paws ){
+        console.log(el)
+        console.log(paw_index)
+        el.setAttribute("class","paw")
+        el.classList.add("paw_"+paw_index);
+        paw_index++;
+    }
+
+    for(let pattes of paws){
+        bodyCow.appendChild(pattes)
+    }
+
+
+   
+
+    headCow.setAttribute("id","head_cow")
+    bodyCow.setAttribute("id","body_cow");
+    horns.setAttribute("class","horns");
+    eyes.setAttribute("class","eyes")
+    tail.setAttribute("id","tail")
+
+    blackboard.appendChild(headCow)
+    blackboard.appendChild(bodyCow)
+    bodyCow.appendChild(tail)
+    headCow.appendChild(eyes)
+    headCow.appendChild(horns)
+
+    addEventListener("change" , function (event) {
+        let status = document.getElementById("status")
+        const value = event.target.value
+        const name = event.target.name
+        console.log(event.target)
+    
+        status.textContent = `you changed ${value} in ${name}`
+        if(name == "color"){
+            bodyCow.style.backgroundColor = value
+            headCow.style.backgroundColor = value
+        }
+        else if (name == "eyes"){
+            eyes.style.backgroundColor = value
+        }
+        else if (name == "horns"){
+              value == "cut" ? horns.style.visibility = "hidden" : horns.style.visibility = ""
+            
+        }
+        
+    })
+    
+   
+</script>
+</html>

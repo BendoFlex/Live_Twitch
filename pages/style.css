@@ -1,0 +1,117 @@
+
+/*HEADER*/
+#header {
+    background-color: #312f2f;
+    height: 125px;
+    margin : 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#logo img {
+    width :100px;
+}
+
+nav ul  {
+ display: flex;
+ justify-content: space-around;
+ width: 410px;
+}
+
+li {
+    list-style-type :none;
+}
+
+a {
+    text-decoration: none;
+    color : white
+}
+
+a :hover {
+    font-weight: bold;
+}
+
+#search {
+    display: flex;
+    width: 152px;
+    justify-content: space-around;
+    align-items:center;
+    background-color: #F5F5F5;
+    border-radius: 50px;
+
+}
+
+#search img{
+    width :50px
+}
+
+#search #input_search {
+    text-align:center;
+    height : 50%;
+    width:50%
+}
+
+#search #input_search input {
+    text-align:center;
+    background-color: #F5F5F5;
+    border:none;
+    width: 73px;
+    
+}
+
+#account img{
+    width :30px
+}
+
+
+/*CONTENU*/
+
+
+
+#presentation {
+    margin : 100px;
+    background-color: cadetblue;
+    height : 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#presentation #image_pres img {
+    width : 100px;
+    width: 160px;
+}
+
+/*BLOCS*/
+#explorer {
+    margin : 100px;
+    background-color: yellow;
+    height : 200px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#customiser {
+    margin : 100px;
+    background-color: chocolate;
+    height : 200px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.block {
+    width : 150px;
+    height : 100px;
+    background-color: red;
+    position:relative;
+}
+
+.block img {
+    left: -49px;
+    width: 114px;
+    position: absolute;
+    top: 5px;
+}
